@@ -7,16 +7,20 @@ public class Motorbike extends Vehicle {
      * create two private variables boolean helmetPresent , int currentSpeed
      */
 
-
-
+    private boolean helmetPresent;
+    private int currentSpeed;
 
     /**
      * Task 7
      * create a getter methods for helmetPresent and currentSpeed
      */
 
-
-
+    public boolean isHelmetPresent() {
+        return helmetPresent;
+    }
+    public int getCurrentSpeed() {
+        return currentSpeed;
+    }
 
     /**
      * Task 8
@@ -24,8 +28,12 @@ public class Motorbike extends Vehicle {
      * order of parameters are model, color, helmetPresent, currentSpeed
      */
 
+    public Motorbike(String model, String color,boolean helmetPresent,int currentSpeed) {
+        super(model, color);
+        this.currentSpeed = currentSpeed;
+        this.helmetPresent = helmetPresent;
 
-
+    }
 
     /**
      * Task 9
@@ -40,6 +48,15 @@ public class Motorbike extends Vehicle {
      * return extraFine
      */
 
+    public int additionalFineForNoHelmet() {
 
+        int extraFine = Ticket.getFine(currentSpeed);
 
+        if (isHelmetPresent() == false) {
+            extraFine += 200;
+        }
+        return extraFine;
+    }
 }
+
+
